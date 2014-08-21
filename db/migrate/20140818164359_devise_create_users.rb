@@ -30,6 +30,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
+      t.string  :first_name
+      t.string  :last_name 
+      t.string  :address
+      t.string  :address_2
+      t.string  :city
+      t.string  :state
+      t.integer  :zip
+      t.string  :phone
 
       t.timestamps
     end
