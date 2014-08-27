@@ -11,10 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818164404) do
+ActiveRecord::Schema.define(version: 20140821042908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "help_offers", force: true do |t|
+    t.integer  "need_id"
+    t.integer  "user_id"
+    t.integer  "receiving_user_id"
+    t.string   "status"
+    t.text     "decline_message"
+    t.text     "accept_message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "help_offers", ["need_id"], name: "index_help_offers_on_need_id", using: :btree
+  add_index "help_offers", ["user_id"], name: "index_help_offers_on_user_id", using: :btree
+
+  create_table "need_categories", force: true do |t|
+    t.integer  "need_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "need_categories", ["category_id"], name: "index_need_categories_on_category_id", using: :btree
+  add_index "need_categories", ["need_id"], name: "index_need_categories_on_need_id", using: :btree
+
+  create_table "needs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "needs", ["user_id"], name: "index_needs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

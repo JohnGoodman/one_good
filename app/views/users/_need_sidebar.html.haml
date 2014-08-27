@@ -1,0 +1,11 @@
+%h2 Post A Need
+= simple_form_for @new_need do |form|
+	- if flash[:need_errors]
+		%ul.need_error_ul
+			- flash[:need_errors].each do |error|
+				%li= error
+
+	= form.input :title, placeholder: 'Title', label: false
+	= form.input :body, placeholder: 'Describe your need', label: false
+	= form.association :categories, as: :check_boxes
+	= form.submit

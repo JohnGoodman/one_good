@@ -1,0 +1,31 @@
+.row
+	.large-7.small-12.columns
+		%h2 My Needs
+
+		- @needs.each do |need|
+			.user_list_block
+				%p.need_title= need.title
+				%p.need_body= need.body
+				%ul.need_categories
+					- need.categories.each do |category|
+						%li= category.title
+
+		- if @needs.empty?
+			%p You have not posted any needs yet
+
+		/ ---------------------------
+		%hr
+		/ ---------------------------
+
+		%h2 My Help Offers
+		- @help_offers.each do |need|
+			.user_list_block
+				Need
+
+		- if @help_offers.empty?
+			%p You have not made any help offers yet
+
+	.large-5.small-12.columns
+		= render 'need_sidebar'
+
+  

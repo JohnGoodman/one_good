@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  root to: 'needs#index'
   devise_for :users
+
+  resources :needs
+  resources :users, only: [:show]
 end
