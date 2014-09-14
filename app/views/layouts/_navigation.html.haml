@@ -1,12 +1,17 @@
--# navigation styled for Zurb Foundation 5
--# the syntax for data-topbar may need to change for Zurb Foundation 5
 %nav.top-bar{"data-topbar" => true}
-  %ul.title-area
-    %li.name
-      = link_to 'Home', root_path
-    %li.toggle-topbar.menu-icon
-      %a{:href => "#"}
-        Menu
-  .top-bar-section
-    %ul
-      = render 'layouts/navigation_links'
+	%ul.title-area
+		%li.toggle-topbar.menu-icon
+			%a{:href => "#"}
+				Menu
+	.top-bar-section
+		%ul.right
+			- if user_signed_in?
+				%li.has-dropdown
+					= link_to current_user.name, current_user
+					%ul.dropdown
+						%li= link_to 'Dashboard', current_user
+						%li= link_to 'My Account', edit_user_registration_path(current_user)
+						%li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+						%li= link_to 'All Needs', root_path
+			- else
+				%li= link_to 'Sign In', new_user_session_path

@@ -1,5 +1,5 @@
 class NeedsController < ApplicationController
-  before_filter :generate_cagetories_list
+  before_filter :generate_defaults
   
   def index
   end
@@ -25,8 +25,9 @@ class NeedsController < ApplicationController
       params.require(:need).permit( :user_id, :title, :body, category_ids: [])
     end
 
-    def generate_cagetories_list
+    def generate_defaults
       @categories = Category.all
+      @needs_list = Need.recent
     end
 
 end

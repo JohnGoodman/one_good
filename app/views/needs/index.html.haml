@@ -7,7 +7,7 @@
           %p Post your needs with a breif decription. One more sentance telling about the needs section.
         .large-4.medium-12.columns.join
           #join_holder
-            = link_to 'Join', '#'
+            = link_to 'Join', new_user_registration_path
         .large-4.medium-12.columns.need_heading
           %h2 I can help
           %p See a need you can help with? Send a secure message to the requester. 
@@ -18,26 +18,22 @@
         %span.category_link= category.title.titleize
 
 
-.row
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  .large-4.medium-6.small-12.columns
-    Card
-  
+#cards_holder.row
+  - @needs_list.each do |need|
+    .large-4.medium-6.small-12.columns.card
+      .card_body
+        .category_symbol
+        %p
+          %strong= need.title + ":"
+          = truncate(need.body, length: 245)
+          
+      .card_meta
+        %span.card_name= need.creator_name
+        %span.card_date 
+          = need.creator_location
+          |
+          = display_date(need.created_at)
+
 
 
 %footer

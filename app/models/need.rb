@@ -9,7 +9,17 @@ class Need < ActiveRecord::Base
   validates :title, :body, presence: true
   validate :at_least_one_need_category
 
+  scope :recent, -> { where(created_at: (Date.today - 4.weeks)..(Date.today + 1.day))}
+
   def at_least_one_need_category
 		errors.add(:base, 'Your Need must have at least one category') if self.need_categories.blank?
+  end
+
+  def creator_name
+    user.name
+  end
+
+  def creator_location
+    'Clarkston, GA'
   end
 end

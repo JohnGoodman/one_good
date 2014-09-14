@@ -1,4 +1,9 @@
 @import "compass/css3/";
+
+$light_brown: #ad3925;
+$dark_brown: #44170e;
+
+
 // Base
 * {
 	-webkit-font-smoothing: antialiased;
@@ -22,15 +27,15 @@ span.category_link {
 	color: #fff;
 	font-size: 17px;
 	text-align: center;
-	background: #ad3925;
-	border: 1px solid #44170e;
+	background: $light_brown;
+	border: 1px solid $dark_brown;
 	padding: 5px 10px; 
 	@include border-radius(4px);
 }
 
 span.category_link.active {
-	background: #44170e;
-	border: 1px solid #ad3925;
+	background: $dark_brown;
+	border: 1px solid $light_brown;
 }
 
 .join {
@@ -43,8 +48,8 @@ span.category_link.active {
 		color: #fff;
 		font-size: 50px;
 		text-align: center;
-		background: #44170e;
-		border: 1px solid #44170e;
+		background: $dark_brown;
+		border: 1px solid $dark_brown;
 		padding: 15px 30px; 
 		@include border-radius(4px);
 		text-transform: uppercase;
@@ -70,4 +75,41 @@ span.category_link.active {
 	height: 100px;
 	background: url(/assets/browse_needs.png) center no-repeat;
 	margin-top: 60px;
+}
+
+
+// Cards
+#cards_holder { 
+	margin-top: 30px;
+}
+
+.card {
+	margin-bottom: 30px;
+
+	.card_body {
+		background: #fff;
+		padding: 15px;
+		color: $dark_brown;
+		border-left: 1px solid $dark_brown;
+		border-bottom: 1px solid $dark_brown;
+		height: 240px;
+		margin-bottom: 10px;
+
+		.category_symbol {
+
+		}
+		p {
+			margin-bottom: 0px;
+		}
+	}
+
+	.card_meta {
+		.card_name {
+			font-weight: bold;
+		}
+		.card_date {
+			font-size: 11px;
+			font-style: italic;
+		}
+	}
 }
