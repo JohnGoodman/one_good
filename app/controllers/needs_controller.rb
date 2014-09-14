@@ -1,4 +1,5 @@
 class NeedsController < ApplicationController
+  before_filter :generate_cagetories_list
   
   def index
   end
@@ -22,6 +23,10 @@ class NeedsController < ApplicationController
   private
     def need_params
       params.require(:need).permit( :user_id, :title, :body, category_ids: [])
+    end
+
+    def generate_cagetories_list
+      @categories = Category.all
     end
 
 end

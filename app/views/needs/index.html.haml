@@ -1,1 +1,47 @@
-hey
+#category_holder
+  .row
+    .large-12
+      .row
+        .large-4.medium-12.columns.need_heading
+          %h2 I need help
+          %p Post your needs with a breif decription. One more sentance telling about the needs section.
+        .large-4.medium-12.columns.join
+          #join_holder
+            = link_to 'Join', '#'
+        .large-4.medium-12.columns.need_heading
+          %h2 I can help
+          %p See a need you can help with? Send a secure message to the requester. 
+    #browse_needs_title.large-12
+      
+    #browse_needs_list.large-12
+      - @categories.each do |category|
+        %span.category_link= category.title.titleize
+
+
+.row
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  .large-4.medium-6.small-12.columns
+    Card
+  
+
+
+%footer
+  .row
+    .large-12.columns
+      Footer
+

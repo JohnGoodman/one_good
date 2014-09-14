@@ -1,0 +1,73 @@
+@import "compass/css3/";
+// Base
+* {
+	-webkit-font-smoothing: antialiased;
+}
+
+// Header
+header {
+	background: url(/assets/header.png) center no-repeat;
+	height: 100px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+// Homepage
+#category_holder {
+	height: 460px;
+	background: url(/assets/category_background.jpg) center no-repeat;
+}
+
+span.category_link {
+	color: #fff;
+	font-size: 17px;
+	text-align: center;
+	background: #ad3925;
+	border: 1px solid #44170e;
+	padding: 5px 10px; 
+	@include border-radius(4px);
+}
+
+span.category_link.active {
+	background: #44170e;
+	border: 1px solid #ad3925;
+}
+
+.join {
+	text-align: center;
+
+	#join_holder {
+		margin-top: 150px;
+
+		a {
+		color: #fff;
+		font-size: 50px;
+		text-align: center;
+		background: #44170e;
+		border: 1px solid #44170e;
+		padding: 15px 30px; 
+		@include border-radius(4px);
+		text-transform: uppercase;
+	}
+	}
+}
+
+.need_heading {
+	color: #fff;
+	text-align: center;
+	margin-top: 50px;
+
+	h2 {
+		color: #fff;
+	}
+
+	p {
+
+	}
+}
+
+#browse_needs_title {
+	height: 100px;
+	background: url(/assets/browse_needs.png) center no-repeat;
+	margin-top: 60px;
+}
