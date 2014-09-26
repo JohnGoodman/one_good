@@ -11,10 +11,10 @@
 # See http://railsapps.github.io/rails-environment-variables.html
 
 
-Category.create(title: 'employment')
-Category.create(title: 'volunteer')
-Category.create(title: 'automotive')
+Category.create(title: 'work')
+Category.create(title: 'home')
+Category.create(title: 'auto')
 Category.create(title: 'bills')
-Category.create(title: 'transportation')
 Category.create(title: 'education')
-Category.create(title: 'housing')
+Category.create(title: 'borrow')
+Category.create(title: 'other')

@@ -4,10 +4,10 @@
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'One Good'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'One Good'}"}
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all'
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     = render 'layouts/navigation'
@@ -16,3 +16,11 @@
       .large-12.columns
     = render 'layouts/messages'
     = yield
+
+    %footer
+      = yield :footer          
+      .row
+        .large-12#footer_copyright
+          &copy; #{Date.today.year} 1 Good Samaritan
+
+

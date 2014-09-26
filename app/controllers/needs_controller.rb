@@ -20,6 +20,10 @@ class NeedsController < ApplicationController
 
   end
 
+  def show
+    @need = Need.find(params[:id])
+  end
+
   private
     def need_params
       params.require(:need).permit( :user_id, :title, :body, category_ids: [])

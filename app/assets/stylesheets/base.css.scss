@@ -1,7 +1,9 @@
 @import "compass/css3/";
 
 $light_brown: #ad3925;
+$medium_brown: #913120;
 $dark_brown: #44170e;
+$footer_color: #bbbdbf;
 
 
 // Base
@@ -23,19 +25,30 @@ header {
 	background: url(/assets/category_background.jpg) center no-repeat;
 }
 
-span.category_link {
+button.category_link {
 	color: #fff;
 	font-size: 17px;
 	text-align: center;
 	background: $light_brown;
 	border: 1px solid $dark_brown;
-	padding: 5px 10px; 
+	padding: 7px 10px; 
 	@include border-radius(4px);
+	width: 130px;
+	display: inline-block;
+	margin-right: 10px;
 }
 
-span.category_link.active {
+button.category_link:last-of-type {
+	margin-right: 0px;
+}
+
+button.category_link.active {
 	background: $dark_brown;
 	border: 1px solid $light_brown;
+}
+
+button.category_link:hover { 
+	background: $medium_brown;
 }
 
 .join {
@@ -111,5 +124,47 @@ span.category_link.active {
 			font-size: 11px;
 			font-style: italic;
 		}
+	}
+}
+
+
+
+// Footer 
+footer {
+	background: #44170e;
+	margin-top: 30px;
+	color: $footer_color;
+	padding: 30px 0;
+
+	a, h3 {
+		color: $footer_color;
+	}
+}
+
+#about {
+	border-bottom: 1px solid $footer_color;
+	padding-bottom: 15px;
+}
+
+
+
+// Needs
+.user_list_block {
+	border-bottom: 1px solid #fff; 
+	margin-bottom: 30px;
+}
+
+.need_title {
+
+}
+
+.need_body {
+
+}
+
+ul.need_categories {
+	list-style: none;
+	li {
+
 	}
 }

@@ -4,18 +4,17 @@
 
 		- @needs.each do |need|
 			.user_list_block
-				%p.need_title= need.title
+				%p.need_title
+					%strong= need.title
 				%p.need_body= need.body
 				%ul.need_categories
 					- need.categories.each do |category|
 						%li= category.title
 
 		- if @needs.empty?
-			%p You have not posted any needs yet
+			.user_list_block
+				%p You have not posted any needs yet
 
-		/ ---------------------------
-		%hr
-		/ ---------------------------
 
 		%h2 My Help Offers
 		- @help_offers.each do |need|
