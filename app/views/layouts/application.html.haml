@@ -20,7 +20,13 @@
     %footer
       = yield :footer          
       .row
-        .large-12#footer_copyright
+        .large-3.medium-6.columns
           &copy; #{Date.today.year} 1 Good Samaritan
+        .large-3.medium-6.columns
+          = mail_to 'support@1goodsamaritan.com'
+        .large-3.medium-6.columns
+          = link_to 'Terms & Conditions', '#'
+        .large-3.medium-6.columns
+          = link_to 'Privacy Policy', '#'
 
 

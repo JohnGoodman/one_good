@@ -8,4 +8,4 @@
 	= form.input :title, placeholder: 'Title', label: false
 	= form.input :body, placeholder: 'Describe your need', label: false
 	= form.association :categories, as: :check_boxes
-	= form.submit
+	= form.submit 'Post Need', class: 'button'

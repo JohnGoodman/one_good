@@ -31,7 +31,7 @@ class NeedsController < ApplicationController
 
     def generate_defaults
       @categories = Category.all
-      @needs_list = Need.recent
+      @needs_list = Need.search(params)
     end
 
 end

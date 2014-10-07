@@ -95,3 +95,7 @@ section {
 body {
   background-color: #f1ebea;
 }
+
+[class*="column"] + [class*="column"]:last-child {
+  float: left;
+}

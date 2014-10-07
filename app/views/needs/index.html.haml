@@ -14,9 +14,9 @@
     #browse_needs_title.large-12
       
     #browse_needs_list.large-12
-      = form_tag '', method: 'get' do |f|
+      = form_tag '/#browse_needs_title', method: 'get' do |f|
         - @categories.each do |category|
-          = button_tag category.title.titleize, class: 'category_link', value: category.title
+          = button_tag category.title.titleize, class: "category_link #{'active' if params[:filter] == category.title}", value: category.title, name: 'filter'
 
 
 #cards_holder.row
@@ -24,10 +24,13 @@
     .large-4.medium-6.small-12.columns.card
       = link_to need do
         .card_body
-          .category_symbol
+          .category_list
+            - need.categories.each do |need_category|
+              .category_symbol{class: "#{need_category.title}"}
+
           %p
             %strong= need.title + ":"
-            = truncate(need.body, length: 245)
+            = truncate(need.body, length: 235)
           
       .card_meta
         %span.card_name= need.creator_name
@@ -38,13 +41,8 @@
 
 = content_for :footer do
   .row#about
-    .large-7.small-12.columns
+    .large-12.columns
       %h3 About 1 Good Samaritan
-      %p The story of the Good Samaritan derives from the Bible telling about a man who was robbed and left for dead.  He was avoided by men who are typically expected to be righteous and of good deeds.  They refused to help as the man lay there battered and desperate.  Finally, a Samaritan stopped to help.  Now, Samaritans were not thought of highly in those times and were not considered to be the most outstanding citizens.  This Samaritan cared for the injured man and found him room and board until he healed, paying for every expense.  When asked the question of who was the best neighbor, it was obvious that the one who cared for the man was, even though he would normally not be viewed as such.  With this in mind, we present this website, where even the most unexpected neighbor can emerge as someone else's hero.  All it takes is ONE GOOD SAMARITAN.  See Luke 10:25-37 in the Bible for the whole story!
-    .large-1.small-0.columns
-    .large-4.small-12.columns
-      %h3 Support
-      %p= mail_to 'support@1goodsamaritan.com'
-      %h3 More Information
-      %p Terms & Conditions
-      %p Privacy Policy
+      %p The story of the Good Samaritan derives from the Bible telling about a man who was robbed and left for dead. He was avoided by men who are typically expected to be righteous and of good deeds.  They refused to help as the man lay there battered and desperate.  Finally, a Samaritan stopped to help.  
+      %p Now, Samaritans were not thought of highly in those times and were not considered to be the most outstanding citizens.  This Samaritan cared for the injured man and found him room and board until he healed, paying for every expense.  When asked the question of who was the best neighbor, it was obvious that the one who cared for the man was, even though he would normally not be viewed as such. 
+      %p With this in mind, we present this website, where even the most unexpected neighbor can emerge as someone else's hero.  All it takes is ONE GOOD SAMARITAN.  See Luke 10:25-37 in the Bible for the whole story!
