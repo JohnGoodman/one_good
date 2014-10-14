@@ -1,0 +1,24 @@
+.row
+	.large-12.columns
+		%p
+			= @help_offer.creator_name
+			%em
+				%small
+					|
+					= display_date @help_offer.created_at
+			%p
+				= @help_offer.help_message
+			%p
+				Status:
+				= @help_offer.status
+
+- if @help_offer.pending?
+	.row
+		= form_tag @help_offer, method: 'put' do
+			.large-5.columns
+				= text_area_tag :message
+			.large-1.columns
+				= submit_tag 'Accept', class: 'button accept', name: 'accept'
+				= submit_tag 'Decline', class: 'button decline', name: 'decline'
+			.large-6.columns
+				&nbsp;

@@ -1,0 +1,4 @@
+= simple_form_for @help_offer do |f|
+	= f.input :help_message, label: 'How can you help?'
+	= f.input :need_id, input_html: { value: @need.id }, as: :hidden
+	= f.submit 'Send Message', class: 'button'

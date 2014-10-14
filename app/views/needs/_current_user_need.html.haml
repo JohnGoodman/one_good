@@ -1,0 +1,17 @@
+%h2 Help Offers
+- if @help_offers.empty?
+	%p There are no help offers yet.
+
+%ul
+	- @help_offers.each do |help_offer|
+		%li
+			= link_to help_offer do
+				= help_offer.creator_name
+				%em
+					%small
+						|
+						= display_date help_offer.created_at
+				.right= help_offer.status
+				%br
+				= truncate(help_offer.help_message, length: 150)
+

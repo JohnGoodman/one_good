@@ -1,0 +1,11 @@
+%p
+	You need to 
+	= link_to 'Sign Up', new_user_registration_path
+	or 
+	= link_to 'Sign In', new_user_session_path
+	to give a help offer.
+
+= simple_form_for @help_offer do |f|
+	= f.input :help_message, label: 'How can you help?', input_html: { disabled: 'disabled'}
+	= f.input :need_id, input_html: { value: @need.id }, as: :hidden
+	= f.submit 'Send Message', class: 'button', disabled: 'disabled'

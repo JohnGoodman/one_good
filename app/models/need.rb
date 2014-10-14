@@ -36,4 +36,8 @@ class Need < ActiveRecord::Base
   def creator_location
     'Clarkston, GA'
   end
+
+  def is_current_users(current_user)
+    user == current_user
+  end
 end

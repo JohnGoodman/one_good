@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140821042908) do
     t.string   "status"
     t.text     "decline_message"
     t.text     "accept_message"
+    t.text     "help_message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,10 +7,6 @@ class NeedsController < ApplicationController
   def create
   	@need = current_user.needs.create(need_params)
 
-  	# params[:need][:category_ids].each do |category_id|
-  	# 	@need.need_categories << 
-  	# end
-
   	if @need.save
   		redirect_to current_user, notice: 'Need created'
   	else
@@ -22,6 +18,9 @@ class NeedsController < ApplicationController
 
   def show
     @need = Need.find(params[:id])
+    @help_offer = HelpOffer.new
+    @help_offers = @need.help_offers
+    @current_user_already_offered = @need.help_offers.map{|h| h.user_id} == current_user.id
   end
 
   private

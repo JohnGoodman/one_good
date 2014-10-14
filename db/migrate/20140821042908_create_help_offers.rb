@@ -7,6 +7,7 @@ class CreateHelpOffers < ActiveRecord::Migration
       t.string :status
       t.text :decline_message
       t.text :accept_message
+      t.text :help_message
 
       t.timestamps
     end

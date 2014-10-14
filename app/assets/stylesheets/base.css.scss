@@ -11,17 +11,40 @@ $footer_color: #bbbdbf;
 	-webkit-font-smoothing: antialiased;
 }
 
+h1 {}
+h2 {
+	text-transform: capitalize;
+}
+
+h3 {
+	text-transform: capitalize;
+}
+
 body {
-	.button {
+	.button,
+	button.disabled, button[disabled], .button.disabled, .disabled.submit, .disabled.button-xs, .button[disabled], [disabled].submit, [disabled].button-xs,
+	button.disabled:hover, button[disabled]:hover, .button.disabled:hover, .disabled.submit:hover, .disabled.button-xs:hover, .button[disabled]:hover, [disabled].submit:hover, [disabled].button-xs:hover {
 	  background: $dark_brown;
 	}
 
-	body .button:hover {
+	.button:hover {
 	  background: $medium_brown;
 	}
 
 	textarea { 
 		height: 200px;
+	}
+
+	small {
+		font-size: 85%;
+	}
+
+	a {
+		color: $light_brown;
+	}
+
+	a:hover {
+		color: $dark_brown;
 	}
 } 
 
@@ -122,9 +145,6 @@ button.category_link:hover {
 		height: 240px;
 		margin-bottom: 10px;
 
-		.category_symbol {
-
-		}
 		p {
 			margin-bottom: 0px;
 		}
@@ -137,19 +157,6 @@ button.category_link:hover {
 		left: 0px;
 		top: 15px;
 
-		.category_symbol {
-			width: 32px;
-			height: 32px;
-			margin-bottom: 15px;
-		}
-
-		.work { background: url(icons/work.png) }
-		.home { background: url(icons/home.png) }
-		.auto { background: url(icons/auto.png) }
-		.bills { background: url(icons/bills.png) }
-		.education { background: url(icons/education.png) }
-		.borrow { background: url(icons/barrow.png) }
-		.other { background: url(icons/other.png) }
 	}
 
 	.card_meta {
@@ -162,6 +169,21 @@ button.category_link:hover {
 		}
 	}
 }
+
+
+.category_symbol {
+	width: 32px;
+	height: 32px;
+	margin-bottom: 15px;
+}
+
+.work { background: url(icons/work.png) }
+.home { background: url(icons/home.png) }
+.auto { background: url(icons/auto.png) }
+.bills { background: url(icons/bills.png) }
+.education { background: url(icons/education.png) }
+.borrow { background: url(icons/barrow.png) }
+.other { background: url(icons/other.png) }
 
 
 

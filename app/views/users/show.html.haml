@@ -17,9 +17,14 @@
 
 
 		%h2 My Help Offers
-		- @help_offers.each do |need|
+		- @help_offers.each do |help_offer|
+
 			.user_list_block
-				Need
+				%p
+					= help_offer.reciever_name
+					%br
+					= link_to help_offer.need.title, help_offer.need
+				
 
 		- if @help_offers.empty?
 			%p You have not made any help offers yet

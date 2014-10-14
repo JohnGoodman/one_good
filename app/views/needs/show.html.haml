@@ -1,4 +1,28 @@
 .row
-	.large-12
-		%h3= @need.title
+	.large-5.small-12.columns
+		%h2= @need.title
+		%p
+			= @need.creator_name
+			%small
+				%em
+					= @need.creator_location
+					|
+					= display_date(@need.created_at)
 		%p= @need.body
+		%p
+			Posted In:
+			= @need.categories.map{|c| c.title}.join(", ") 
+
+	.large-1.columns &nbsp;
+	.large-6.small-12.columns
+		- if @need.is_current_users(current_user)
+			= render 'current_user_need'
+		- else
+			%h2 I Can Help
+			- if user_signed_in?
+				- if @current_user_already_offered
+					You have already made an offer
+				- else
+					= render 'can_help_form'
+			- else
+				= render 'join_form'
