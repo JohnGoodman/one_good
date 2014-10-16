@@ -20,7 +20,10 @@ class NeedsController < ApplicationController
     @need = Need.find(params[:id])
     @help_offer = HelpOffer.new
     @help_offers = @need.help_offers
-    @current_user_already_offered = @need.help_offers.map{|h| h.user_id} == current_user.id
+    @current_user_already_offered = current_user.blank? ? false : @need.help_offers.map{|h| h.user_id}.include?(current_user.id)
+    if @current_user_already_offered
+      @existing_help_offer = current_user.help_offers.find_by(need_id: @need.id)
+    end
   end
 
   private

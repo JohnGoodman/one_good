@@ -21,7 +21,7 @@
 			%h2 I Can Help
 			- if user_signed_in?
 				- if @current_user_already_offered
-					You have already made an offer
+					You offered to help on #{long_display_date(@existing_help_offer.created_at)}. Your offer is #{@existing_help_offer.status}.
 				- else
 					= render 'can_help_form'
 			- else

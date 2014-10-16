@@ -18,12 +18,18 @@
 
 		%h2 My Help Offers
 		- @help_offers.each do |help_offer|
+			- need = help_offer.need
 
 			.user_list_block
 				%p
+					%em Offered Help To:
 					= help_offer.reciever_name
 					%br
-					= link_to help_offer.need.title, help_offer.need
+					%em Need: 
+					= link_to need.title, need
+					%br
+					%em Status: 
+					= help_offer.status
 				
 
 		- if @help_offers.empty?
