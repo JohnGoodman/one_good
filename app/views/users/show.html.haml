@@ -5,7 +5,8 @@
 		- @needs.each do |need|
 			.user_list_block
 				%p.need_title
-					%strong= need.title
+					= link_to need do
+						%strong= need.title
 				%p.need_body= need.body
 				%ul.need_categories
 					- need.categories.each do |category|
