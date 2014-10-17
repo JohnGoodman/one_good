@@ -8,7 +8,7 @@ class HelpOffersController < ApplicationController
 		@help_offer.user = current_user
 
 		if @help_offer.save
-			redirect_to current_user, notice: 'Your offer has been sent to ' + need.user.name
+			redirect_to root_path, notice: 'Your offer has been sent to ' + need.user.name
 		else
 			redirect_to :back, alert: @help_offer.errors.full_messages.join('. ')
 		end

@@ -4,6 +4,8 @@ $light_brown: #ad3925;
 $medium_brown: #913120;
 $dark_brown: #44170e;
 $footer_color: #bbbdbf;
+$green: #519120;
+
 
 
 // Base
@@ -45,6 +47,20 @@ body {
 
 	a:hover {
 		color: $dark_brown;
+	}
+
+	.no_left_padding {
+		padding-left: 0px;
+	}
+
+	.alert-box.success,
+	.authform .success#error_explanation {
+		border: none;
+		background: none;
+		color: $green;
+		text-align: center;
+		font-weight: bold;
+		font-size: 110%;
 	}
 } 
 
@@ -95,15 +111,22 @@ button.category_link:hover {
 		margin-top: 150px;
 
 		a {
-		color: #fff;
-		font-size: 50px;
-		text-align: center;
-		background: $dark_brown;
-		border: 1px solid $dark_brown;
-		padding: 15px 30px; 
-		@include border-radius(4px);
-		text-transform: uppercase;
+			color: #fff;
+			font-size: 50px;
+			text-align: center;
+			background: $dark_brown;
+			border: 1px solid $dark_brown;
+			padding: 15px 30px; 
+			@include border-radius(4px);
+			text-transform: uppercase;
+		}
 	}
+
+	#join_holder.post_need {
+
+		a { 
+			font-size: 30px;
+		}
 	}
 }
 
@@ -159,6 +182,13 @@ button.category_link:hover {
 
 	}
 
+	.need_help_offers {
+		position: absolute;
+		bottom: 50px;
+		font-size: 85%;
+		font-style: italic;
+	}
+
 	.card_meta {
 		.card_name {
 			font-weight: bold;
@@ -198,6 +228,10 @@ footer {
 	a, h3 {
 		color: $footer_color;
 	}
+
+	a:hover {
+		color: #fff;
+	}
 }
 
 #about {
@@ -225,5 +259,28 @@ ul.need_categories {
 	list-style: none;
 	li {
 
+	}
+}
+
+.check_boxes {
+	text-transform: capitalize;
+	.control-label {
+		margin-bottom: 15px;
+		font-size: 110%;
+	}
+
+	input,
+	input[type="checkbox"] {
+		margin-right: 15px;
+	}
+}
+
+#show_my_needs {
+	text-align: center;
+	color: #fff;
+
+	a {
+		color: #fff;
+		font-size: 90%;
 	}
 }

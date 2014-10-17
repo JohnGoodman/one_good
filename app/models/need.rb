@@ -12,13 +12,19 @@ class Need < ActiveRecord::Base
 
   scope :recent, -> { where(created_at: (Date.today - 4.weeks)..(Date.today + 2.day))}
 
-  def self.search(params)
+  def self.search(params, current_user)
     if params[:filter].present?
       category_id = Category.find_by(title: params[:filter]).id
       Need.joins(:categories).where(:categories => {id: category_id})
+    elsif params[:my_needs].present?
+      current_user.needs
     else
       self.recent
     end
+  end
+
+  def help_offers_count
+    help_offers.count
   end
 
   def at_least_one_need_category

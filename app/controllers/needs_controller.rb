@@ -4,14 +4,21 @@ class NeedsController < ApplicationController
   def index
   end
 
+  def my_needs
+
+  end
+
+  def new
+    @need = Need.new
+  end
+
   def create
   	@need = current_user.needs.create(need_params)
 
   	if @need.save
-  		redirect_to current_user, notice: 'Need created'
+  		redirect_to root_path, notice: 'Your need was successfully posted.'
   	else
-  		flash[:need_errors] = @need.errors.full_messages
-  		redirect_to current_user
+  		render :new
   	end
 
   end
@@ -33,7 +40,7 @@ class NeedsController < ApplicationController
 
     def generate_defaults
       @categories = Category.all
-      @needs_list = Need.search(params)
+      @needs = Need.search(params, current_user)
     end
 
 end

@@ -1,0 +1,19 @@
+= simple_form_for @need do |form|
+	.row
+		.large-12
+			%h2 Post A Need
+		
+			- if @need.errors.any?
+				.alert-box.alert
+					- @need.errors.full_messages.each do |error|
+						%div= error
+
+	.row
+		.large-6.small-12.columns.no_left_padding
+			= form.input :title, placeholder: 'Title', label: false
+			= form.input :body, placeholder: 'Describe your need', label: false
+		.large-6.small-12.columns
+			= form.association :categories, as: :check_boxes
+	.row
+		.large-12.no_left_padding
+			= form.submit 'Post Need', class: 'button'

@@ -6,8 +6,12 @@
           %h2 I need help
           %p Post your needs with a breif decription. One more sentance telling about the needs section.
         .large-4.medium-12.columns.join
-          #join_holder
-            = link_to 'Join', new_user_registration_path
+          - if user_signed_in?
+            #join_holder.post_need
+              = link_to 'Post A Need', [:new, :need]
+          - else
+            #join_holder
+              = link_to 'Join', new_user_registration_path
         .large-4.medium-12.columns.need_heading
           %h2 I can help
           %p See a need you can help with? Send a secure message to the requester. 
@@ -17,27 +21,18 @@
       = form_tag '/#browse_needs_title', method: 'get' do |f|
         - @categories.each do |category|
           = button_tag category.title.titleize, class: "category_link #{'active' if params[:filter] == category.title}", value: category.title, name: 'filter'
+      - if user_signed_in?
+        #show_my_needs
+          = link_to 'Show only my needs', "/?my_needs=true#browse_needs_title"
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          = link_to 'Show all needs', '/#browse_needs_title'
 
 
 #cards_holder.row
-  - @needs_list.each do |need|
-    .large-4.medium-6.small-12.columns.card
-      = link_to need do
-        .card_body
-          .category_list
-            - need.categories.each do |need_category|
-              .category_symbol{class: "#{need_category.title}"}
+  - if @needs.empty?
+    %p No needs match that filter.
 
-          %p
-            %strong= need.title + ":"
-            = truncate(need.body, length: 235)
-          
-      .card_meta
-        %span.card_name= need.creator_name
-        %span.card_date 
-          = need.creator_location
-          |
-          = display_date(need.created_at)
+  = render @needs
 
 = content_for :footer do
   .row#about

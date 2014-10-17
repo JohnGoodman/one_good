@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :needs
   resources :users, only: [:show]
   resources :help_offers
+
 end

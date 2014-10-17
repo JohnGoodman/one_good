@@ -1,0 +1,23 @@
+.large-4.medium-6.small-12.columns.card
+  = link_to need do
+    .card_body
+      .category_list
+        - need.categories.each do |need_category|
+          .category_symbol{class: "#{need_category.title}"}
+
+      %p
+        %strong= need.title + ":"
+        = truncate(need.body, length: 235)
+
+      .need_help_offers
+        - if need.help_offers_count > 0
+          = pluralize(need.help_offers_count, 'help offer')
+        - else
+          no help offers yet
+      
+  .card_meta
+    %span.card_name= need.creator_name
+    %span.card_date 
+      = need.creator_location
+      |
+      = display_date(need.created_at)
