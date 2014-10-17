@@ -7,7 +7,7 @@
 
       %p
         %strong= need.title + ":"
-        = truncate(need.body, length: 235)
+        = truncate(need.body, length: 210)
 
       .need_help_offers
         - if need.help_offers_count > 0
