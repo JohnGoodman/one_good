@@ -5,6 +5,8 @@ class HelpOffer < ActiveRecord::Base
 
   validates :help_message, presence: true
 
+  after_create :send_notification
+
   def creator_name
     user.try(:name).to_s
   end
@@ -23,6 +25,10 @@ class HelpOffer < ActiveRecord::Base
 
   def declined? 
     status == 'declined'
+  end
+
+  def send_notification
+    InformationMailer.send_help_offer_notification(self).deliver
   end
 
   def accept_help_offer

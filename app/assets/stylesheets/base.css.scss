@@ -37,6 +37,10 @@ body {
 		height: 200px;
 	}
 
+	textarea.smaller_textarea {
+		height: 125px;
+	}
+
 	small {
 		font-size: 85%;
 	}
@@ -61,6 +65,16 @@ body {
 		text-align: center;
 		font-weight: bold;
 		font-size: 110%;
+	}
+
+	ul.default_list {
+		list-style: none;
+		padding: 0px;
+		margin: 0px;
+
+		li {
+			margin-bottom: 30px;
+		}
 	}
 } 
 

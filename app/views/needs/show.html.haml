@@ -11,7 +11,7 @@
 		%p= @need.body
 		%p
 			Posted In:
-			= @need.categories.map{|c| c.title}.join(", ") 
+			= @need.categories.map{|c| c.title.titleize}.join(", ") 
 
 	.large-1.columns &nbsp;
 	.large-6.small-12.columns

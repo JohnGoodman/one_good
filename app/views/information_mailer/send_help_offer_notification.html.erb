@@ -1,0 +1,27 @@
+<%= render '/layouts/email/header' %>
+
+<!-- body -->
+<table class="body-wrap">
+	<tr>
+		<td></td>
+		<td class="container" bgcolor="#FFFFFF">
+
+			<!-- content -->
+			<div class="content">
+			<table>
+				<tr>
+					<td>
+						<p><%= @message %></p>
+					</td>
+				</tr>
+			</table>
+			</div>
+			<!-- /content -->
+									
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /body -->
+
+<%= render 'layouts/email/footer' %>

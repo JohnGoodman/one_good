@@ -1,6 +1,6 @@
 class HelpOffersController < ApplicationController
 	def create
-		@help_offer = HelpOffer.create(help_offer_params)
+		@help_offer = HelpOffer.new(help_offer_params)
 		need = @help_offer.need
 
 		@help_offer.status = 'pending'

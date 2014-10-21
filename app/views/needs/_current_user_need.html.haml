@@ -2,7 +2,7 @@
 - if @help_offers.empty?
 	%p There are no help offers yet.
 
-%ul
+%ul.default_list
 	- @help_offers.each do |help_offer|
 		%li
 			= link_to help_offer do
