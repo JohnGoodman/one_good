@@ -5,6 +5,7 @@ $medium_brown: #913120;
 $dark_brown: #44170e;
 $footer_color: #bbbdbf;
 $green: #519120;
+$red: #E80E02;
 
 
 
@@ -20,6 +21,10 @@ h2 {
 
 h3 {
 	text-transform: capitalize;
+}
+
+#error_explanation h2 {
+	font-size: 22px;
 }
 
 body {
@@ -58,13 +63,22 @@ body {
 	}
 
 	.alert-box.success,
-	.authform .success#error_explanation {
+	.alert-box.alert {
 		border: none;
 		background: none;
-		color: $green;
 		text-align: center;
 		font-weight: bold;
 		font-size: 110%;
+	}	
+
+	.alert-box.success,
+	.authform .success#error_explanation {
+		color: $green;
+	}
+
+	.alert-box.alert,
+	.authform .alert#error_explanation {
+		color: $red;
 	}
 
 	ul.default_list {

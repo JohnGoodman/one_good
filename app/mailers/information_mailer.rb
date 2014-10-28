@@ -9,7 +9,7 @@ class InformationMailer < ActionMailer::Base
 
     if Rails.env.development?
       subject = '[' + to + '] ' + subject
-      to = 'jgoodman09@gmail.com' 
+      to = 'jgoodman09@gmail.com, aj_nykamp@hotmail.com' 
     end
 
     mail(:to => to, :subject => subject)
@@ -21,7 +21,7 @@ class InformationMailer < ActionMailer::Base
 
   	if Rails.env.development?
   		subject = '[' + to.join(', ') + '] ' + subject
- 	  	to = 'jgoodman09@gmail.com' 
+ 	  	to = 'jgoodman09@gmail.com, aj_nykamp@hotmail.com' 
 	  end
 
   	mail(:to => to, :subject => subject)
@@ -33,7 +33,7 @@ class InformationMailer < ActionMailer::Base
 
   	if Rails.env.development?
   		subject = '[' + to + '] ' + subject
- 	  	to = 'jgoodman09@gmail.com' 
+ 	  	to = 'jgoodman09@gmail.com, aj_nykamp@hotmail.com' 
 	  end
 
   	mail(:to => to, :subject => subject)
